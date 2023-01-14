@@ -27,6 +27,8 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor = '#010c0f';
       showAlert("Dark mode has been enabled", "success")
+      //code to change title of page dynamically
+      //document.title = 'Textutils - Dark mode';
     }
     else
     {
