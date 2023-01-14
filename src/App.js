@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import './App.css';
 import Alert from './components/Alert';
-//import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
 
 function App() {
   /*Using state to toggle between dark mode and light mode*/
@@ -39,6 +45,7 @@ function App() {
   }
   return (
     <>
+    <Router>
     {/*Created a navbar component*/}
     <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
     {/*Creating alert component */}
@@ -46,11 +53,15 @@ function App() {
     {/*<Navbar title="TextUtils" aboutText="About TextUtils" />*/}
     {/*<Navbar/>*/}
     <div className="container my-3">
-      {/*Created a TextForm component*/}
-    <TextForm showAlert={showAlert} heading="Enter the text below to analyze:" mode={mode}/>
-    {/*Created a About component*/}
-    {/*<About/>*/}
+    <Routes>
+      {/*Created a TextForm component and used it in routing*/}
+    <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter the text below to analyze:" mode={mode}/>}/>  
+    {/*About Component is created and used here*/}
+    <Route exact path="/about" element={<About/>}/>
+    {/*exact is used by router to match exact path otherwise it can render other path with same beginning*/}
+    </Routes>
     </div>
+    </Router>
     </>
   );
 }
