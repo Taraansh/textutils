@@ -58,7 +58,7 @@ function App() {
       {/* <TextForm showAlert={showAlert} heading="Enter the text below to analyze:" mode={mode}/> */}
     <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter the text below to analyze:" mode={mode}/>}/>
     {/*About Component is created and used here*/}
-    <Route exact path="/about" element={<About/>}/>
+    <Route exact path="/about" element={<About mode={mode}/>}/>
     {/*exact is used by router to match exact path otherwise it can render other path with same beginning */}
     </Routes>
     </div>
