@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import './App.css';
 import Alert from './components/Alert';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route
-// } from "react-router-dom";
+ import {
+   BrowserRouter as Router,
+   Routes,
+   Route
+ } from "react-router-dom";
 // Routing doesn't work with github pages so all the tags and Link tags have been commented out
 
 function App() {
@@ -45,24 +45,24 @@ function App() {
   }
   return (
     <>
-    {/* <Router> */}
+    <Router>
     {/*Created a navbar component*/}
     <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
     {/*Creating alert component */}
     <Alert alert={alert}/>
-    {/*<Navbar title="TextUtils" aboutText="About TextUtils" />*/}
+    {/* <Navbar title="TextUtils" aboutText="About TextUtils" /> */}
     {/*<Navbar/>*/}
     <div className="container my-3">
-    {/* <Routes> */}
+    <Routes>
       {/*Created a TextForm component and used it in routing*/}
-      <TextForm showAlert={showAlert} heading="Enter the text below to analyze:" mode={mode}/>
-    {/* <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter the text below to analyze:" mode={mode}/>}/>   */}
+      {/* <TextForm showAlert={showAlert} heading="Enter the text below to analyze:" mode={mode}/> */}
+    <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter the text below to analyze:" mode={mode}/>}/>
     {/*About Component is created and used here*/}
-    {/* <Route exact path="/about" element={<About/>}/> */}
+    <Route exact path="/about" element={<About/>}/>
     {/*exact is used by router to match exact path otherwise it can render other path with same beginning */}
-    {/* </Routes> */}
+    </Routes>
     </div>
-    {/* </Router> */}
+    </Router>
     </>
   );
 }
